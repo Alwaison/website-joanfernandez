@@ -1,0 +1,66 @@
+// ==================================================
+// = || = Variables genericas =======================
+// ==================================================
+// Colores
+@link-color: #10132C;
+@text-color: #444;
+@sel-color: #fff;
+@sel-bg-color: #afd239;
+
+//Enlazandos directamente a la url, conseguirmos un CDN
+@base-url: "http://192.168.1.128/~Joan/joanfernandez.es/images/backgrounds/";
+@ff: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+// ==================================================
+// = || = Mixins ====================================
+// ==================================================
+
+// Eliminar margenes, paddings y list-styles
+.cleanul () {
+	margin:0; padding:0; list-style:none;
+}
+
+// border-radius 
+.br (@radius: 5px) { 
+	-moz-border-radius:@radius;
+	-webkkit-border-radius:@radius;
+	border-radius:@radius;
+}
+
+// text-shadow
+.ts (@x: 0, @y: 0, @blur: 1px, @color: #000){
+	-moz-text-shadow:@arguments;
+	-webkit-text-shadow:@arguments;
+	text-shadow:@arguments;
+}
+
+// box-shadow
+.bs (@x: 0, @y: 0, @z: 0, @blur: 1px, @color: #000) {
+	-moz-box-shadow:@arguments;
+	-webkit-box-shadow:@arguments;
+	box-shadow:@arguments;
+}
+// box-shadow inset
+.bsi (@x: 0, @y: 0, @z: 0, @blur: 1px, @color: #000) {
+	-moz-box-shadow:@x @y @z @blur @color inset;
+	-webkit-box-shadow:@x @y @z @blur @color inset;
+	box-shadow:@x @y @z @blur @color inset;
+}
+
+// position
+.po (@type: relative, @t: auto, @r: auto, @b:auto, @l: auto) {
+	position:@type;
+	top: @t;
+	right: @r;
+	bottom: @b;
+	left: @l;
+}
+
+// transition
+.trans (@prop, @delay:500ms) {
+    -webkit-transition:@prop @delay;
+    -moz-transition:@prop @delay;
+    -o-transition:@prop @delay;
+    -ms-transition:@prop @delay;
+    transition:@prop @delay;    	
+}
