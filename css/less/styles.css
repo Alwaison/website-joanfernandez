@@ -389,6 +389,18 @@ input[type=submit],
   bottom: auto;
   left: auto;
 }
+.body-work .link-work {
+  color: #b1dd47;
+}
+.body-skills .link-skills {
+  color: #b1dd47;
+}
+.body-about .link-about {
+  color: #b1dd47;
+}
+.body-talk .link-talk {
+  color: #b1dd47;
+}
 /* ==|== HEADER ========================================================= */
 .logo {
   position: absolute;
@@ -1060,6 +1072,11 @@ input[type=text], input[type=email], textarea {
   -moz-border-radius: 10px;
   -webkkit-border-radius: 10px;
   border-radius: 10px;
+  -webkit-transition: background-color 500ms;
+  -moz-transition: background-color 500ms;
+  -o-transition: background-color 500ms;
+  -ms-transition: background-color 500ms;
+  transition: background-color 500ms;
 }
 ::-webkit-input-placeholder, ::-webkit-input-placeholder {
   color: #92a2b6;

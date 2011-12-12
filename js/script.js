@@ -181,7 +181,10 @@ function initWorkStructure() {
 	
 }
 
-
+/**
+ * Load the twitter timeline
+ *
+ */
 function initTwitterTimeline() {
 	$.getJSON('https://api.twitter.com/1/statuses/user_timeline.json?include_rts=true&screen_name=joan_fern&count=4&callback=?', function(data) {
 		var items = [];
@@ -199,6 +202,35 @@ function initTwitterTimeline() {
 	});
 }
 
+function initNavHighlight(){
+	var $win = $(window);
+		var $sections = $('.section');
+	
+	var _sections = new Array();
+
+		$sections.each(function(i){
+		_sections[i] = new Object();
+		_sections[i].id = $(this).attr('id');
+		_sections[i].top = Math.round($(this).offset().top);
+		//debug += _sections[i].top + '\n';
+	});
+	console.log(_sections);
+	
+	$win.bind('load scroll', function(){// resize
+		var scroll = $win.scrollTop();
+		// Set html class based on the window scroll position
+		var id = null;
+		for (var i = 0; i < _sections.length; i++) {
+			if (scroll >= _sections[i].top) {
+				id = _sections[i].id;
+			}
+		}
+
+		$('body').attr('class', (id!=null)?'body-'+id:null);
+	});
+}
+
+
 /**
  * Document ready. Let's go!
  *
@@ -211,4 +243,5 @@ $(document).ready(function(){
 	initWorkStructure()
 	initSkills();
 	initForms();
+	initNavHighlight();
 });
