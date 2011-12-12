@@ -738,6 +738,11 @@ input[type=submit],
   .timeline {
     font-size:15px;
     position:relative;
+    min-height:350px;
+
+    &.loading {
+      background:#a0b0c3 url("@{base-url}loading.gif") 50% 50% no-repeat;
+    }
 
     h1 {
       float:right;

@@ -183,17 +183,19 @@ function initWorkStructure() {
 
 
 function initTwitterTimeline() {
-	$.getJSON('https://api.twitter.com/1/statuses/user_timeline.json?include_entities=true&include_rts=true&screen_name=joan_fern&count=5&callback=?', function(data) {
+	$.getJSON('https://api.twitter.com/1/statuses/user_timeline.json?include_rts=true&screen_name=joan_fern&count=4&callback=?', function(data) {
 		var items = [];
 
 		$.each(data, function(key, val) {
-			items.push('<li id="' + key + '">' + twttr.txt.autoLink(val.text) + '</li>');
+			items.push('<li>' + twttr.txt.autoLink(val.text) + '</li>');
 		});
 
 		$('<ul/>', {
 			'class': 'my-new-list',
 			html: items.join('')
-		}).appendTo('body');
+		}).appendTo('#timeline');
+
+		$('#timeline').removeClass('loading');
 	});
 }
 
@@ -204,9 +206,9 @@ function initTwitterTimeline() {
 $(document).ready(function(){
 	navPosition();
 	initLocalScroll();
+	initTwitterTimeline();
 	initMarkupMods();
 	initWorkStructure()
 	initSkills();
-	initTwitterTimeline();
 	initForms();
 });

@@ -278,7 +278,7 @@ td {
    ========================================================================== */
 /* ==|== ESTRUCTURA ========================================================= */
 header[role=banner] {
-  background: url("http://joanfernandez.es/v2/images/backgrounds/bg-welcome.png");
+  background: url("http://192.168.1.128/~Joan/joanfernandez.es/images/backgrounds/bg-welcome.png");
   height: 740px;
 }
 footer[role=contentinfo] {
@@ -330,7 +330,7 @@ input[type=submit],
 }
 /* ==|== Navigation ===================================================== */
 .top-navigation {
-  background: url("http://joanfernandez.es/v2/images/backgrounds/bg-top-mywork.png") 0 100% repeat-x, url("http://joanfernandez.es/v2/images/backgrounds/bg-welcome.png") 0 102% repeat-x;
+  background: url("http://192.168.1.128/~Joan/joanfernandez.es/images/backgrounds/bg-top-mywork.png") 0 100% repeat-x, url("http://192.168.1.128/~Joan/joanfernandez.es/images/backgrounds/bg-welcome.png") 0 102% repeat-x;
   height: 68px;
   line-height: 58px;
   position: absolute;
@@ -408,7 +408,7 @@ input[type=submit],
   text-shadow: 0 -1px 2px rgba(0, 0, 0, 0.75);
 }
 .logo h2 {
-  background: url("http://joanfernandez.es/v2/images/backgrounds/bg-logo.png") 50% 0 no-repeat;
+  background: url("http://192.168.1.128/~Joan/joanfernandez.es/images/backgrounds/bg-logo.png") 50% 0 no-repeat;
   color: #b1dd47;
   font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 30px;
@@ -433,7 +433,7 @@ input[type=submit],
 }
 /* ==|== WORK =========================================================== */
 .work {
-  background: url("http://joanfernandez.es/v2/images/backgrounds/bg-mywork.png") 0 0;
+  background: url("http://192.168.1.128/~Joan/joanfernandez.es/images/backgrounds/bg-mywork.png") 0 0;
   padding: 80px 0 0;
   min-height: 800px;
 }
@@ -504,7 +504,7 @@ input[type=submit],
   content: '';
   height: 67px;
   width: 59px;
-  background: url("http://joanfernandez.es/v2/images/backgrounds/bg-work-title.png");
+  background: url("http://192.168.1.128/~Joan/joanfernandez.es/images/backgrounds/bg-work-title.png");
   position: absolute;
   top: 0;
   right: -3px;
@@ -700,7 +700,7 @@ input[type=submit],
 }
 /* ==|== SKILLS ========================================================= */
 .skills {
-  background: #10132c url("http://joanfernandez.es/v2/images/backgrounds/bg-skills.png") 0 0 repeat-x;
+  background: #10132c url("http://192.168.1.128/~Joan/joanfernandez.es/images/backgrounds/bg-skills.png") 0 0 repeat-x;
   padding: 130px 0;
 }
 .skills h1 {
@@ -713,7 +713,7 @@ input[type=submit],
   position: relative;
 }
 .skills h1 span:before, .skills h1 span:after {
-  background: url("http://joanfernandez.es/v2/images/backgrounds/bg-skills-title.png");
+  background: url("http://192.168.1.128/~Joan/joanfernandez.es/images/backgrounds/bg-skills-title.png");
   width: 52px;
   height: 49px;
   content: '';
@@ -937,10 +937,14 @@ input[type=submit],
 .about-sections .timeline {
   font-size: 15px;
   position: relative;
+  min-height: 350px;
+}
+.about-sections .timeline.loading {
+  background: #a0b0c3 url("http://192.168.1.128/~Joan/joanfernandez.es/images/backgrounds/loading.gif") 50% 50% no-repeat;
 }
 .about-sections .timeline h1 {
   float: right;
-  background: url("http://joanfernandez.es/v2/images/backgrounds/bg-timeline.png") 0 50% no-repeat;
+  background: url("http://192.168.1.128/~Joan/joanfernandez.es/images/backgrounds/bg-timeline.png") 0 50% no-repeat;
   padding: 0 0 0 81px;
   margin: 0 0 20px;
 }
@@ -960,7 +964,7 @@ input[type=submit],
   padding-top: 0;
 }
 .about-sections .timeline .tl-blur {
-  background: url("http://joanfernandez.es/v2/images/backgrounds/tl-blur.png") 0 100% repeat-x;
+  background: url("http://192.168.1.128/~Joan/joanfernandez.es/images/backgrounds/tl-blur.png") 0 100% repeat-x;
   display: block;
   height: 33px;
   width: 279px;
@@ -980,7 +984,7 @@ input[type=submit],
   font-size: 15px;
 }
 .about-sections .social a {
-  background: #a0b0c3 url("http://joanfernandez.es/v2/images/backgrounds/social-icons.png") 95% 0 no-repeat;
+  background: #a0b0c3 url("http://192.168.1.128/~Joan/joanfernandez.es/images/backgrounds/social-icons.png") 95% 0 no-repeat;
   color: #fff;
   display: block;
   height: 47px;
@@ -1061,9 +1065,6 @@ input[type=text], input[type=email], textarea {
   color: #92a2b6;
 }
 :-moz-placeholder, :-moz-placeholder {
-  color: #92a2b6;
-}
-input:placeholder {
   color: #92a2b6;
 }
 textarea {
