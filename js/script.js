@@ -181,6 +181,22 @@ function initWorkStructure() {
 	
 }
 
+
+function initTwitterTimeline() {
+	$.getJSON('https://api.twitter.com/1/statuses/user_timeline.json?include_entities=true&include_rts=true&screen_name=joan_fern&count=5&callback=?', function(data) {
+		var items = [];
+
+		$.each(data, function(key, val) {
+			items.push('<li id="' + key + '">' + twttr.txt.autoLink(val.text) + '</li>');
+		});
+
+		$('<ul/>', {
+			'class': 'my-new-list',
+			html: items.join('')
+		}).appendTo('body');
+	});
+}
+
 /**
  * Document ready. Let's go!
  *
@@ -191,5 +207,6 @@ $(document).ready(function(){
 	initMarkupMods();
 	initWorkStructure()
 	initSkills();
+	initTwitterTimeline();
 	initForms();
 });
