@@ -206,21 +206,22 @@ function initTwitterTimeline() {
 	});
 }
 
+/**
+ * Set active the correct link of the navigation depending of the scroll
+ *
+ */
 function initNavHighlight(){
 	var $win = $(window);
-		var $sections = $('.section');
-	
+	var $sections = $('.section');
 	var _sections = new Array();
 
-		$sections.each(function(i){
+	$sections.each(function(i){
 		_sections[i] = new Object();
 		_sections[i].id = $(this).attr('id');
 		_sections[i].top = Math.round($(this).offset().top);
-		//debug += _sections[i].top + '\n';
 	});
-	console.log(_sections);
 	
-	$win.bind('load scroll', function(){// resize
+	$win.bind('load scroll', function(){ // resize
 		var scroll = $win.scrollTop();
 		// Set html class based on the window scroll position
 		var id = null;
@@ -234,6 +235,28 @@ function initNavHighlight(){
 	});
 }
 
+function initSendMail() {
+	$('#send').click(function(e){
+
+		var data = {
+			'name': 	$('#name').value(),
+			'email': 	$('#email').value(),
+			'comment': 	$('#comment').value()
+		};
+
+		console.log(data);
+		alert(data);
+		return false;
+		//e.preventDefault();
+		// $.ajax({
+		//   type: 'POST',
+		//   url: 'contact.php',
+		//   data: data,
+		//   success: success,
+		//   dataType: dataType
+		// });
+	});
+}
 
 /**
  * Document ready. Let's go!
@@ -248,4 +271,5 @@ $(document).ready(function(){
 	initSkills();
 	initForms();
 	initNavHighlight();
+	initSendMail();
 });
