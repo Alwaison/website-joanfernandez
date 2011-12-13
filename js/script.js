@@ -75,6 +75,8 @@ function initSkills(){
 		var _s = parseInt($(this).attr('class').substr(1));
 
 		// Chart data
+		var v1 = (_s==100) ? 99.999 : _s; // If the value is 100, Chrome in Linux dont show de canvas
+    	var v2 = (_s==100) ? 0.001 : parseInt(100-_s);
 		var browserUsageData = [
     		// Object: label, value, color
     		{ 'label' : '', 'value' : _s, 'color' : '#cdf63c' },
@@ -146,10 +148,12 @@ function initWorkStructure() {
 		var _s = parseInt($(this).attr('class').substr(1));
 
 		// Chart data
+		var v1 = (_s==100) ? 99.999 : _s; // If the value is 100, Chrome in Linux dont show de canvas
+    	var v2 = (_s==100) ? 0.001 : parseInt(100-_s);
 		var browserUsageData = [
     		// Object: label, value, color
-    		{ 'label' : '', 'value' : _s, 'color' : '#98c141' },
-	    	{ 'label' : '', 'value' : parseInt(100-_s), 'color' : '#9e9e9e' }
+    		{ 'label' : '', 'value' : v1, 'color' : '#98c141' },
+	    	{ 'label' : '', 'value' : v2, 'color' : '#9e9e9e' }
 		];
 
 
