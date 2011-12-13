@@ -898,10 +898,10 @@ input[type=submit]:active{
 }
 
 /* HTML5 Form validation */
-::-webkit-validation-bubble-icon {}
+/*::-webkit-validation-bubble-icon {}
 ::-webkit-validation-bubble-body {}
 ::-webkit-validation-bubble-text-block {}
-::-webkit-validation-bubble-arrow-heading {}
+::-webkit-validation-bubble-arrow-heading {}*/
 
 /* Footer info */
 .info {
@@ -981,9 +981,46 @@ input[type=submit]:active{
    Modify as content requires.
    ========================================================================== */
 
-@media only screen and (min-width:480px) {
-  /* Style adjustments for viewports 480px and over go here */
+@media only screen and (max-width:480px) {
+  /* header */
+  .logo {
+    .po(relative,auto,auto,auto,auto);
+    padding:10em 0 0;
+    
+    h1 {
+      font-size:6em;
+      text-align:center;
+    }
+  }
 
+  .welcome-text {
+    .po(relative,auto,auto,auto,auto);
+    margin:4em auto 0;
+    width:90%;
+    padding:0 1em;
+    font-size:1.5em;
+  }
+
+  /* navigation */
+  .top-navigation {
+    li {
+      margin:0 1em;
+    }
+    a {
+      font-size:2em;
+    } 
+  }
+
+  /* about */
+  .about-sections section {
+    width:80%;
+    margin:0 auto 2em;
+    float:none;
+    display:block;
+  }
+  .about-sections section:last-child {    
+    margin:0 auto;
+  }
 }
 
 @media only screen and (min-width:768px) {
