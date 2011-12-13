@@ -79,8 +79,8 @@ function initSkills(){
     	var v2 = (_s==100) ? 0.001 : parseInt(100-_s);
 		var browserUsageData = [
     		// Object: label, value, color
-    		{ 'label' : '', 'value' : _s, 'color' : '#cdf63c' },
-	    	{ 'label' : '', 'value' : parseInt(100-_s), 'color' : '#8da6ce' }
+    		{ 'label' : '', 'value' : v1, 'color' : '#cdf63c' },
+	    	{ 'label' : '', 'value' : v2, 'color' : '#8da6ce' }
 		];
 
 
