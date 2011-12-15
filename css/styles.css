@@ -1123,6 +1123,11 @@ input[type=submit]:active {
   bottom: auto;
   left: 1px;
 }
+/* HTML5 Form validation */
+/*::-webkit-validation-bubble-icon {}
+::-webkit-validation-bubble-body {}
+::-webkit-validation-bubble-text-block {}
+::-webkit-validation-bubble-arrow-heading {}*/
 /* Footer info */
 .info {
   max-width: 400px;
@@ -1229,11 +1234,52 @@ input[type=submit]:active {
    These override the primary ('mobile first') styles
    Modify as content requires.
    ========================================================================== */
-@media only screen and (min-width:480px) {
-  /* Style adjustments for viewports 480px and over go here */
+@media only screen and (max-width:480px) {
+  /* header */
+  .logo {
+    position: relative;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    padding: 10em 0 0;
+  }
+  .logo h1 {
+    font-size: 6em;
+    text-align: center;
+  }
+  .welcome-text {
+    position: relative;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    margin: 4em auto 0;
+    width: 90%;
+    padding: 0 1em;
+    font-size: 1.5em;
+  }
+  /* navigation */
+  .top-navigation li {
+    margin: 0 1em;
+  }
+  .top-navigation a {
+    font-size: 2em;
+  }
+  /* about */
+  .about-sections section {
+    width: 80%;
+    margin: 0 auto 2em;
+    float: none;
+    display: block;
+  }
+  .about-sections section:last-child {
+    margin: 0 auto;
+  }
 }
 @media only screen and (min-width:768px) {
   /* Style adjustments for viewports 768px and over go here */
+  /* test simpless in ubuntu with wine */
 }
 /* ==|== print styles =======================================================
    Print styles.
