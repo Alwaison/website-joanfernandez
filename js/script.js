@@ -128,14 +128,15 @@ function initWorkStructure() {
 	var html = '';
 	
 	/* Move the images out of the list */
-	$('#work .wrapper').append('<div id="imgs-container" class="imgs-container"></div>');
-	//$('<div id="imgs-container" class="imgs-container"></div>').insertAfter('#work > h1'); 
+	//$('#work .wrapper > h1').append('<div id="imgs-container" class="imgs-container"></div>');
+	$('<div id="imgs-container" class="imgs-container"></div>').insertAfter('#work .wrapper > h1'); 
 	$('#work article').each(function(){
 		var img = $(this).find('.work-image');
 		img.attr('id', 'iwork-'+count);
 		img.wrap('<a class="img-wrp" href="#twork-'+count+'"/>');
 		$('#imgs-container').append(img.parent());
 		$(this).parent('li').attr('id', 'twork-'+count);
+		$(this).find('h1').prepend('<a class="mq-hidden" href="#work" title="Back to top">#</a>');
 		count++;
 	});
 	
@@ -174,7 +175,7 @@ function initWorkStructure() {
 	
 	/* Onclick event */
 	$('#work .img-wrp').click(function(e){
-		e.preventDefault();
+		//e.preventDefault();
 		$('#work .img-wrp').removeClass('active')
 		$(this).addClass('active');
 		var id = $(this).find('img').attr('id').split('-')[1];
