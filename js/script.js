@@ -115,9 +115,39 @@ function initForms() {
 	// Auto-resizeables textareas
 	$('textarea').elastic();
 
-	$('#contact input[type=submit]').click(function(){
-		var _val = $(this).attr('value'); 
-		$(this).attr('value','Sending...');
+	$('#contact').submit(function(e){
+		
+		e.preventDefault();
+
+		var _val = $('#contact input[type=submit]').attr('value'); 
+		$('#contact input[type=submit]').attr('value','Sending...');
+		$('#contact input[type=submit]').attr('disabled','disabled');
+
+		var data = {
+			'name': 	$('#name').attr('value'),
+			'email': 	$('#email').attr('value'),
+			'comment': 	$('#comment').attr('value')
+		};
+
+		$.ajax({
+			type: 'POST',
+			url: 'contact.php',
+			data: data,
+			success: function(html) {
+				$('#contact').append('<div class="form-status" id="form-status">'+html+'</div>');
+				//alert('success!!');				
+			},
+			complete: function() {
+				$('#contact input[type=submit]').removeAttr('disabled');
+				$('#contact input[type=submit]').attr('value',_val);
+				$('#form-status').addClass('ok');
+				//alert('comlpete!!');
+			},
+			error: function() {
+				alert('error!!');
+				$('#form-status').addClass('error');
+			}
+		});		
 	});
 }
 
@@ -236,28 +266,6 @@ function initNavHighlight(){
 	});
 }
 
-function initSendMail() {
-	$('#send').click(function(e){
-
-		var data = {
-			'name': 	$('#name').value(),
-			'email': 	$('#email').value(),
-			'comment': 	$('#comment').value()
-		};
-
-		console.log(data);
-		alert(data);
-		return false;
-		//e.preventDefault();
-		// $.ajax({
-		//   type: 'POST',
-		//   url: 'contact.php',
-		//   data: data,
-		//   success: success,
-		//   dataType: dataType
-		// });
-	});
-}
 
 /**
  * Document ready. Let's go!
@@ -272,5 +280,4 @@ $(document).ready(function(){
 	initSkills();
 	initForms();
 	initNavHighlight();
-	initSendMail();
 });
