@@ -266,6 +266,20 @@ function initNavHighlight(){
 	});
 }
 
+function easterEgg(){
+	//https://raw.github.com/Alwaison/joanfernandez.es/master/index.html
+	$('body').append('<pre id="code" class="prettyprint"/>');
+	$.get('http://localhost/joanfernandez.es/index.html', function(data){
+		var _html;
+		_html = data.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+		$('#code').html(_html);
+		prettyPrint();
+	});
+	//var _html = $('#code').html();
+	// $('#code').html(_html.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"));
+
+}
+
 
 /**
  * Document ready. Let's go!

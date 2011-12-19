@@ -50,7 +50,7 @@ dfn { font-style:italic; }
 hr { display:block; height:1px; border:0; border-top:1px solid #ccc; margin:1em 0; padding:0; }
 ins { background:#ff9; color:#000; text-decoration:none; }
 mark { background:#ff0; color:#000; font-style:italic; font-weight:bold; }
-pre, code, kbd, samp { font-family:monospace, monospace; _font-family:'courier new', monospace; font-size:1em; }
+pre, code, kbd, samp { font-family:Monaco, Consolas, Inconsolata, 'Deja Vu Sans Mono', 'Droid Sans Mono', 'Andale Mono', 'Lucida Console', monospace; font-size:1.2em; }
 pre { white-space:pre; white-space:pre-wrap; word-wrap:break-word; }
 q { quotes:none; }
 q:before, q:after { content:""; content:none; }
@@ -1164,6 +1164,25 @@ input[type=submit]:disabled{
   }  
 }
 
+
+/* Easter egg || Pretty code */
+/* Pretty printing styles. Used with prettify.js. */
+/* Vim sunburst theme by David Leibovic */
+pre .str { color: #65B042; } /* string  - green */
+pre .kwd { color: #E28964; } /* keyword - dark pink */
+pre .com { color: #AEAEAE; font-style: italic; } /* comment - gray */
+pre .typ { color: #89bdff; } /* type - light blue */
+pre .lit { color: #3387CC; } /* literal - blue */
+pre .pun { color: #fff; } /* punctuation - white */
+pre .pln { color: #fff; } /* plaintext - white */
+pre .tag { color: #89bdff; } /* html/xml tag    - light blue */
+pre .atn { color: #bdb76b; } /* html/xml attribute name  - khaki */
+pre .atv { color: #65B042; } /* html/xml attribute value - green */
+pre .dec { color: #3387CC; } /* decimal - blue */
+
+pre.prettyprint { background-color:#000; position:absolute; top:0; z-index:10000; }
+
+pre.prettyprint { width:100%; margin:0; padding:1em; white-space:pre-wrap; }
 
 /* ==|== print styles =======================================================
    Print styles.
