@@ -74,7 +74,7 @@ function initSkills(){
 	$('#skill-list').find('b').each(function(){
 		var _s = parseInt($(this).attr('class').substr(1));
 
-		if( Modernizr.canvas ) {
+		if( Modernizr.canvas ) { // #0000010
 			// Chart data
 			var v1 = (_s==100) ? 99.999 : _s; // If the value is 100, Chrome in Linux dont show de canvas
 	    	var v2 = (_s==100) ? 0.001 : parseInt(100-_s);

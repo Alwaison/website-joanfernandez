@@ -1304,7 +1304,7 @@ input[type=submit]:disabled {
     width: 50px;
     height: 50px;
   }
-  .skill-list li b span, .skill-list li b canvas {
+  .skill-list li b span, .skill-list li b canvas, .skill-list li b img {
     width: 50px;
     height: 50px;
     font-size: 25px;
