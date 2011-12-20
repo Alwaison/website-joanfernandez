@@ -74,28 +74,38 @@ function initSkills(){
 	$('#skill-list').find('b').each(function(){
 		var _s = parseInt($(this).attr('class').substr(1));
 
-		// Chart data
-		var v1 = (_s==100) ? 99.999 : _s; // If the value is 100, Chrome in Linux dont show de canvas
-    	var v2 = (_s==100) ? 0.001 : parseInt(100-_s);
-		var browserUsageData = [
-    		// Object: label, value, color
-    		{ 'label' : '', 'value' : v1, 'color' : '#cdf63c' },
-	    	{ 'label' : '', 'value' : v2, 'color' : '#8da6ce' }
-		];
+		if( Modernizr.canvas ) {
+			// Chart data
+			var v1 = (_s==100) ? 99.999 : _s; // If the value is 100, Chrome in Linux dont show de canvas
+	    	var v2 = (_s==100) ? 0.001 : parseInt(100-_s);
+			var browserUsageData = [
+	    		// Object: label, value, color
+	    		{ 'label' : '', 'value' : v1, 'color' : '#cdf63c' },
+		    	{ 'label' : '', 'value' : v2, 'color' : '#8da6ce' }
+			];
 
 
-		// Create a new instance of CanvasPieChart
-		var canvasPieChart = new CanvasPieChart( 
-			$(this).attr('id'), 
-			browserUsageData,
-			{
-		    	'width' : 91,
-		    	'height': 91,
-		    	'strokeLineWidth':0,
-		    	'strokeLineColor': '#10132c',
-		    	'sectorTextRendrer': null,
-		    	'imageMap': false
-			});
+			// Create a new instance of CanvasPieChart
+			var canvasPieChart = new CanvasPieChart( 
+				$(this).attr('id'), 
+				browserUsageData,
+				{
+			    	'width' : 91,
+			    	'height': 91,
+			    	'strokeLineWidth':0,
+			    	'strokeLineColor': '#10132c',
+			    	'sectorTextRendrer': null,
+			    	'imageMap': false
+				}
+			);
+		} else {
+			// canvas fallback
+			var v1 = _s;
+			var v2 = parseInt(100-_s);
+			var _src = 'https://chart.googleapis.com/chart?cht=p&chd=t:'+v1+','+v2+'&chco=cdf63c|8da6ce&chs=111x111&chp=-1.6&chf=bg,s,FFFFFF00';
+			$(this).append('<img src="'+_src+'" >');
+		}
+
 	});
 }
 
@@ -178,29 +188,40 @@ function initWorkStructure() {
 	$('#work .project-tasks').find('b').each(function(){
 		var _s = parseInt($(this).attr('class').substr(1));
 
-		// Chart data
-		var v1 = (_s==100) ? 99.999 : _s; // If the value is 100, Chrome in Linux dont show de canvas
-    	var v2 = (_s==100) ? 0.001 : parseInt(100-_s);
-		var browserUsageData = [
-    		// Object: label, value, color
-    		{ 'label' : '', 'value' : v1, 'color' : '#98c141' },
-	    	{ 'label' : '', 'value' : v2, 'color' : '#9e9e9e' }
-		];
+		if ( Modernizr.canvas ) {
+
+			// Chart data
+			var v1 = (_s==100) ? 99.999 : _s; // If the value is 100, Chrome in Linux dont show de canvas
+	    	var v2 = (_s==100) ? 0.001 : parseInt(100-_s);
+			var browserUsageData = [
+	    		// Object: label, value, color
+	    		{ 'label' : '', 'value' : v1, 'color' : '#98c141' },
+		    	{ 'label' : '', 'value' : v2, 'color' : '#9e9e9e' }
+			];
 
 
-		// Create a new instance of CanvasPieChart
-		var canvasPieChart = new CanvasPieChart( 
-			$(this).attr('id'), 
-			browserUsageData,
-			{
-		    	'width' : 118,
-		    	'height': 118,
-		    	'strokeLineWidth':0,
-		    	'strokeLineColor': '#10132c',
-		    	'sectorTextRendrer': null,
-		    	'imageMap': false
-			});
-	});	
+			// Create a new instance of CanvasPieChart
+			var canvasPieChart = new CanvasPieChart( 
+				$(this).attr('id'), 
+				browserUsageData,
+				{
+			    	'width' : 118,
+			    	'height': 118,
+			    	'strokeLineWidth':0,
+			    	'strokeLineColor': '#10132c',
+			    	'sectorTextRendrer': null,
+			    	'imageMap': false
+				}
+			);
+
+		} else {
+			// canvas fallback
+			var v1 = _s;
+			var v2 = parseInt(100-_s);
+			var _src = 'https://chart.googleapis.com/chart?cht=p&chd=t:'+v1+','+v2+'&chco=98c141|9e9e9e&chs=128x128&chp=-1.6&chf=bg,s,FFFFFF00';
+			$(this).append('<img src="'+_src+'" >');
+		}
+	});
 	
 	
 	/* Onclick event */
@@ -280,10 +301,8 @@ function easterEgg(){
 }
 
 function initKC(){
-	k = new Konami()
-	k.code = function() {
-		easterEgg();
-	}
+	var k = new Konami()
+	k.code = function() { easterEgg(); };
 	k.load()
 }
 
@@ -302,5 +321,4 @@ $(document).ready(function(){
 	initForms();
 	initNavHighlight();
 	initKC();
-
 });

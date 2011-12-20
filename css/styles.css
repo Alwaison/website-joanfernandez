@@ -620,6 +620,9 @@ input[type=submit],
   left: 0;
   z-index: 1;
 }
+.project-tasks b img {
+  margin: -5px;
+}
 .project-tasks strong {
   font-weight: normal;
   display: block;
@@ -802,6 +805,9 @@ input[type=submit],
   display: block;
   width: 91px;
   text-align: center;
+}
+.skill-list li b img {
+  margin: -11px 0 0 -11px;
 }
 .skill-list a {
   font-size: 40px;
