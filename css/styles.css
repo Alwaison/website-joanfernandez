@@ -905,23 +905,36 @@ input[type=submit],
 .about-sections {
   margin: 80px 0 0;
   padding: 0 0 100px;
+  -moz-columns: 3;
+  -webkit-columns: 3;
+  columns: 3;
+  -moz-column-gap: 2em;
+  -webkit-column-gap: 2em;
+  column-gap: 2em;
 }
 .about-sections section {
   background: #a0b0c3;
   color: #ecf2f7;
   padding: 45px 23px 40px;
-  width: 279px;
-  float: left;
-  margin: 0 24px 0 0;
+  /*width:@w - @padding*2px;*/
+
+  /*float:left;*/
+
+  /*margin:0 24px 0 0;*/
+
   -moz-border-radius: 5px;
   -webkkit-border-radius: 5px;
   border-radius: 5px;
   -moz-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.15);
   -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.15);
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.15);
+  -moz-column-break-before: always;
+  -webkit-column-break-before: always;
+  column-break-before: always;
 }
 .about-sections section:last-child {
-  margin: 0;
+  /*margin:0;*/
+
 }
 .about-sections section h1 {
   font-size: 40px;
@@ -1123,6 +1136,9 @@ input[type=submit] {
   -webkit-text-shadow: 2px 3px 0 rgba(146, 162, 182, 0.8);
   text-shadow: 2px 3px 0 rgba(146, 162, 182, 0.8);
 }
+.no-textshadow input[type=submit] {
+  color: #92A2B6;
+}
 input[type=submit]:hover, input[type=submit]:focus {
   color: #eef3f9;
 }
@@ -1315,16 +1331,6 @@ input[type=submit]:disabled {
     line-height: 51px;
     font-size: 25px;
   }
-  /* about */
-  .about-sections section {
-    width: 80%;
-    margin: 0 auto 2em;
-    float: none;
-    display: block;
-  }
-  .about-sections section:last-child {
-    margin: 0 auto;
-  }
   /* Contact */
   .contact-form, .info {
     width: 95%;
@@ -1431,6 +1437,24 @@ input[type=submit]:disabled {
     font-size: 25px;
     padding: 0 15px 0 0;
     font-weight: bold;
+  }
+  /* about */
+  .about-sections {
+    -moz-columns: auto;
+    -webkit-columns: auto;
+    columns: auto;
+    -moz-column-gap: normal;
+    -webkit-column-gap: normal;
+    column-gap: normal;
+  }
+  .about-sections section {
+    width: 80%;
+    margin: 0 auto 2em;
+    float: none;
+    display: block;
+  }
+  .about-sections section:last-child {
+    margin: 0 auto;
   }
 }
 /* Easter egg || Pretty code */
