@@ -698,9 +698,6 @@ input[type=submit],
 }
 
 .about-sections {
-
-  @w: 325;
-  @padding: 23;
   margin:80px 0 0;
   padding:0 0 100px;
   -moz-columns:3;
@@ -738,111 +735,118 @@ input[type=submit],
     a {
       color:#10132c;
     }
+
   }
-
-  .who {
-    font-size:16px;
-
-    p {
-      text-align:right;
-      line-height:22px;
-  
-      &:first-child {
-        text-align:right;
-      }
-    }
-
-    img {
-      float:left;
-      overflow:hidden;
-      margin:-20px 15px 10px 0;
-      .br(50%);
-      .bs(0,0,0,6px,#647387);
-      /*border:6px solid #647387;*/
-    }
-  }
-
-  .timeline {
-    font-size:15px;
-    position:relative;
-    min-height:350px;
-
-    &.loading {
-      background:#a0b0c3 url("@{base-url}loading.gif") 50% 50% no-repeat;
-    }
-
-    h1 {
-      float:right;
-      background:url("@{base-url}bg-timeline.png") 0 50% no-repeat;
-      padding:0 0 0 81px;
-      margin:0 0 20px;
-    }
-
-    ul {
-      .cleanul;
-      clear:both;
-      margin-top:20px;
-    }
-
-    li {
-      padding:15px 0;
-      border-top:1px solid #919DAF;
-
-      &:first-child {
-        border-top:0;
-        padding-top:0;
-      }
-    }
-
-    .tl-blur {
-      background:url("@{base-url}tl-blur.png") 0 100% repeat-x;
-      display:block;
-      height:33px;
-      width:@w - @padding*2px;
-      .po(absolute,auto,auto,47px);
-    }
-  }
-
-  .social {
-
-    h1 { margin:0 0 8px; }
-    
-    ul {
-      .cleanul();
-      font-size:15px;
-    }
-
-    a {
-      background:#A0B0C3 url("@{base-url}social-icons.png") 95% 0 no-repeat; //mantis
-      color:#fff;
-      display:block;
-      height:47px;
-      line-height:47px;
-      padding:0 80px 0 0;
-      margin:2px 0;
-      text-align:right;
-      .br(10px);
-      .trans(background-color);
-
-      b {
-        color:#10132c;
-        text-transform:lowercase;
-        /*font-weight:normal;*/
-      }
-      &:hover {
-        text-decoration:none;
-        background-color:#abbacd;
-      }
-    }
-
-    .delicious { background-position:95% -47px; }
-    .forrst { background-position:95% -47*2px; }
-    .github { background-position:95% -47*3px; }
-    .gplus { background-position:95% -47*4px; }
-    .skype { background-position:95% -47*5px; }
-    .slideshare { background-position:95% -47*6px; }
+  .social a {
+    color:#ECF2F7;
   }
 }
+
+.who {
+  font-size:16px;
+
+  p {
+    text-align:right;
+    line-height:22px;
+
+    &:first-child {
+      text-align:right;
+    }
+  }
+
+  img {
+    float:left;
+    overflow:hidden;
+    margin:-20px 15px 10px 0;
+    .br(50%);
+    .bs(0,0,0,6px,#647387);
+    /*border:6px solid #647387;*/
+  }
+}
+
+.timeline {
+  @w: 325;
+  @padding: 23;
+  font-size:15px;
+  position:relative;
+  min-height:350px;
+
+  &.loading {
+    background:#a0b0c3 url("@{base-url}loading.gif") 50% 50% no-repeat;
+  }
+
+  h1 {
+    float:right;
+    background:url("@{base-url}bg-timeline.png") 0 50% no-repeat;
+    padding:0 0 0 81px;
+    margin:0 0 20px;
+  }
+
+  ul {
+    .cleanul;
+    clear:both;
+    margin-top:20px;
+  }
+
+  li {
+    padding:15px 0;
+    border-top:1px solid #919DAF;
+
+    &:first-child {
+      border-top:0;
+      padding-top:0;
+    }
+  }
+
+  .tl-blur {
+    background:url("@{base-url}tl-blur.png") 0 100% repeat-x;
+    display:block;
+    height:33px;
+    width:@w - @padding*2px;
+    .po(absolute,auto,auto,47px);
+  }
+}
+
+.social {
+
+  h1 { margin:0 0 8px; }
+  
+  ul {
+    .cleanul();
+    font-size:15px;
+  }
+
+  a {
+    background:#A0B0C3 url("@{base-url}social-icons.png") 95% 0 no-repeat; //mantis
+    color:#fff;
+    display:block;
+    height:47px;
+    line-height:47px;
+    padding:0 80px 0 0;
+    margin:2px 0;
+    text-align:right;
+    .br(10px);
+    .trans(background-color);
+
+    b {
+      color:#10132c;
+      text-transform:lowercase;
+      /*font-weight:normal;*/
+    }
+    &:hover {
+      text-decoration:none;
+      background-color:#abbacd;
+    }
+  }
+
+  .delicious { background-position:95% -47px; }
+  .forrst { background-position:95% -47*2px; }
+  .github { background-position:95% -47*3px; }
+  .gplus { background-position:95% -47*4px; }
+  .skype { background-position:95% -47*5px; }
+  .slideshare { background-position:95% -47*6px; }
+}
+
 
 /* ==|== FOOTER ============================================================= */
 footer[role=contentinfo] {
@@ -1005,6 +1009,31 @@ input[type=submit]:disabled{
   margin:15px 0;
 }
 
+/* Easter egg || Pretty code */
+/* Pretty printing styles. Used with prettify.js. || Vim sunburst theme by David Leibovic */
+pre .str { color: #65B042; } /* string  - green */
+pre .kwd { color: #E28964; } /* keyword - dark pink */
+pre .com { color: #AEAEAE; font-style: italic; } /* comment - gray */
+pre .typ { color: #89bdff; } /* type - light blue */
+pre .lit { color: #3387CC; } /* literal - blue */
+pre .pun { color: #fff; } /* punctuation - white */
+pre .pln { color: #fff; } /* plaintext - white */
+pre .tag { color: #89bdff; } /* html/xml tag    - light blue */
+pre .atn { color: #bdb76b; } /* html/xml attribute name  - khaki */
+pre .atv { color: #65B042; } /* html/xml attribute value - green */
+pre .dec { color: #3387CC; } /* decimal - blue */
+pre.prettyprint { 
+  background-color:#000; 
+  position:absolute; 
+  top:0; 
+  z-index:10000; 
+  width:100%; 
+  margin:0; 
+  padding:1em; 
+  white-space:pre-wrap; 
+}
+
+
 
 /* ==|== non-semantic helper classes ========================================
    Please define your styles before this section.
@@ -1036,7 +1065,6 @@ input[type=submit]:disabled{
    ========================================================================== */
 
 @media only screen and (max-width:480px) {
-
 
   /* navigation */
   .top-navigation {
@@ -1074,6 +1102,31 @@ input[type=submit]:disabled{
     }
   }
 
+
+}
+
+@media only screen and (max-width:768px) {
+  /* about */
+  .about-sections {
+    -moz-columns:auto;
+    -webkit-columns:auto;
+    columns:auto;
+    -moz-column-gap:normal;
+    -webkit-column-gap:normal;
+    column-gap:normal;      
+
+    section {
+      width:80%;
+      margin:0 auto 2em;
+      float:none;
+      display:block; 
+
+      &:last-child {    
+        margin:0 auto;
+      }
+    }
+  }  
+
   /* Contact */
   .contact-form,
   .info {
@@ -1090,7 +1143,9 @@ input[type=submit]:disabled{
   input[type="text"], input[type="email"], textarea {
     width:85%;
   }
+
 }
+
 
 @media only screen and (max-width:1023px) {
   /* Style adjustments for viewports 768px and over go here */
@@ -1166,55 +1221,30 @@ input[type=submit]:disabled{
       padding:0 15px 0 0;
       font-weight:bold;
     }
-  }  
-
-  /* about */
-  .about-sections {
-    -moz-columns:auto;
-    -webkit-columns:auto;
-    columns:auto;
-    -moz-column-gap:normal;
-    -webkit-column-gap:normal;
-    column-gap:normal;      
-
-    section {
-      width:80%;
-      margin:0 auto 2em;
-      float:none;
-      display:block; 
-
-      &:last-child {    
-        margin:0 auto;
-      }
-    }
   }
   
-}
+  .social {
 
+    @h: -48px;    
+    a {
+/*      line-height:1;
+      background-position:100% 0;
+      height:auto;
+      padding-top:15px;
+      padding-bottom:15px;*/
+      text-indent:-9999em;
 
-/* Easter egg || Pretty code */
-/* Pretty printing styles. Used with prettify.js. */
-/* Vim sunburst theme by David Leibovic */
-pre .str { color: #65B042; } /* string  - green */
-pre .kwd { color: #E28964; } /* keyword - dark pink */
-pre .com { color: #AEAEAE; font-style: italic; } /* comment - gray */
-pre .typ { color: #89bdff; } /* type - light blue */
-pre .lit { color: #3387CC; } /* literal - blue */
-pre .pun { color: #fff; } /* punctuation - white */
-pre .pln { color: #fff; } /* plaintext - white */
-pre .tag { color: #89bdff; } /* html/xml tag    - light blue */
-pre .atn { color: #bdb76b; } /* html/xml attribute name  - khaki */
-pre .atv { color: #65B042; } /* html/xml attribute value - green */
-pre .dec { color: #3387CC; } /* decimal - blue */
-pre.prettyprint { 
-  background-color:#000; 
-  position:absolute; 
-  top:0; 
-  z-index:10000; 
-  width:100%; 
-  margin:0; 
-  padding:1em; 
-  white-space:pre-wrap; 
+      b {
+        text-indent:0;
+      }
+    }
+/*    .delicious { background-position:100% @h; }
+    .forrst { background-position:100% @h*2px; }
+    .github { background-position:100% @h*3px; }
+    .gplus { background-position:100% @h*4px; }
+    .skype { background-position:100% @h*5px; }
+    .slideshare { background-position:100% @h*6px; }    */
+  }  
 }
 
 /* ==|== print styles =======================================================
