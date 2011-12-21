@@ -539,14 +539,26 @@ input[type=submit],
   font-size: 16px;
   margin: 0 0 40px;
 }
-.work article a {
+.work article .site-link {
   color: #333;
   font-size: 20px;
+  float: right;
   text-decoration: none;
+}
+.work article .site-link:hover, .work article .site-link:focus {
+  background: #333;
+  color: #fff;
+  text-decoration: underline;
+  -webkit-transition: background, color 500ms;
+  -moz-transition: background, color 500ms;
+  -o-transition: background, color 500ms;
+  -ms-transition: background, color 500ms;
+  transition: background, color 500ms;
 }
 .work .tags {
   float: right;
   margin: 10px 0 25px;
+  clear: both;
 }
 .work .tags ul {
   margin: 0;
@@ -1358,6 +1370,15 @@ pre.prettyprint {
    These override the primary ('mobile first') styles
    Modify as content requires.
    ========================================================================== */
+@media only screen and (max-width:479px) {
+  .social a {
+    text-indent: -9999em;
+    padding-right: 55px;
+  }
+  .social a b {
+    text-index: 0em;
+  }
+}
 @media only screen and (max-width:480px) {
   /* navigation */
   .top-navigation li {
@@ -1411,6 +1432,58 @@ pre.prettyprint {
   .about-sections section:last-child {
     margin: 0 auto;
   }
+  /* Works */
+  .imgs-container {
+    width: 95% !important;
+    margin: 3em auto 1em;
+    position: relative;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    float: none;
+    height: auto;
+    overflow: hidden;
+  }
+  .imgs-container .img-wrp {
+    width: 120px !important;
+    height: 120px;
+    position: relative;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    float: left;
+  }
+  .imgs-container .img-wrp:not(.active):hover, .imgs-container .img-wrp:not(.active):focus {
+    /*position:absolute;*/
+  
+    width: 120px;
+    z-index: 3;
+    -webkit-transition: none 500ms;
+    -moz-transition: none 500ms;
+    -o-transition: none 500ms;
+    -ms-transition: none 500ms;
+    transition: none 500ms;
+  }
+  .imgs-container .img-wrp:not(.active):hover:nth-child(3n), .imgs-container .img-wrp:not(.active):focus:nth-child(3n) {
+    right: auto;
+    left: auto;
+  }
+  .imgs-container img {
+    height: 120px !important;
+  }
+  .works {
+    float: none;
+    width: 95%;
+  }
+  .works .mq-hidden {
+    display: inline;
+    width: 35px;
+    font-size: 25px;
+    padding: 0 15px 0 0;
+    font-weight: bold;
+  }
   /* Contact */
   .contact-form, .info {
     width: 95%;
@@ -1456,20 +1529,20 @@ pre.prettyprint {
   }
   /* Works */
   .imgs-container {
-    width: 95%;
+    width: 50%;
     margin: 3em auto 1em;
     position: relative;
     top: auto;
     right: auto;
     bottom: auto;
     left: auto;
-    float: none;
+    /*float:none;*/
+  
     height: auto;
     overflow: hidden;
   }
   .imgs-container .img-wrp {
-    width: 120px;
-    height: 120px;
+    width: 29%;
     position: relative;
     top: auto;
     right: auto;
@@ -1492,7 +1565,7 @@ pre.prettyprint {
   .imgs-container .img-wrp:not(.active):hover, .imgs-container .img-wrp:not(.active):focus {
     /*position:absolute;*/
   
-    width: 120px;
+    width: 29%;
     z-index: 3;
     -webkit-transition: none 500ms;
     -moz-transition: none 500ms;
@@ -1506,38 +1579,6 @@ pre.prettyprint {
   }
   .imgs-container img {
     height: 120px;
-  }
-  .works {
-    float: none;
-    width: 95%;
-  }
-  .works .mq-hidden {
-    display: inline;
-    width: 35px;
-    font-size: 25px;
-    padding: 0 15px 0 0;
-    font-weight: bold;
-  }
-  .social {
-    /*    .delicious { background-position:100% @h; }
-      .forrst { background-position:100% @h*2px; }
-      .github { background-position:100% @h*3px; }
-      .gplus { background-position:100% @h*4px; }
-      .skype { background-position:100% @h*5px; }
-      .slideshare { background-position:100% @h*6px; }    */
-  
-  }
-  .social a {
-    /*      line-height:1;
-        background-position:100% 0;
-        height:auto;
-        padding-top:15px;
-        padding-bottom:15px;*/
-  
-    text-indent: -9999em;
-  }
-  .social a b {
-    text-indent: 0;
   }
 }
 /* ==|== print styles =======================================================
