@@ -288,15 +288,30 @@ function initNavHighlight(){
 }
 
 function easterEgg(){
-	$('body').append('<pre id="code" class="prettyprint"/>');
-	var _code = $('#code');
-	_code.hide();
-	$.get('http://localhost/joanfernandez.es/index.html', function(data){
+
+	$('body').append('<pre id="codeNeo" class="prettyprint neo"/>');
+	var _neo = $('#codeNeo');
+	_neo.css('height',$('body').height()).hide();
+
+	$.get('http://joanfernandez.dev/index.html', function(data){
 		var _html;
 		_html = data.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-		_code.html(_html);
-		prettyPrint();
-		_code.fadeIn('slow');
+
+		_neo.show();
+		$('html, body').animate({ scrollTop: 0 }, 0);
+		_neo.html('<div class="text">Follow&nbsp;the&nbsp;White&nbsp;Rabbit.<span class="cursor">&nbsp;</span></div>');
+
+		var fn = function() {
+			$('body').append('<pre id="code" class="prettyprint"/>');
+			var _code = $('#code');
+			_code.hide();
+			_code.html(_html);
+			prettyPrint();
+			_code.fadeIn('slow');			
+		}
+
+		window.setTimeout(fn,20000);
+
 	});
 }
 
