@@ -130,7 +130,7 @@ function initForms() {
 		e.preventDefault();
 
 		var _val = $('#contact input[type=submit]').attr('value'); 
-		$('#contact input[type=submit]').attr('value','Sending...');
+		$('#contact input[type=submit]').attr('value','Enviando...');
 		$('#contact input[type=submit]').attr('disabled','disabled');
 
 		var data = {
@@ -144,20 +144,21 @@ function initForms() {
 			url: 'contact.php',
 			data: data,
 			success: function(html) {
-				$('#contact').append('<div class="form-status" id="form-status">'+html+'</div>');
-				//alert('success!!');				
+				$('#contact').append('<div class="form-status" id="form-status" title="Clic para cerrar">'+html+'</div>');	
 			},
 			complete: function() {
 				$('#contact input[type=submit]').removeAttr('disabled');
 				$('#contact input[type=submit]').attr('value',_val);
 				$('#form-status').addClass('ok');
-				//alert('comlpete!!');
 			},
 			error: function() {
-				alert('error!!');
 				$('#form-status').addClass('error');
 			}
-		});		
+		});
+	});
+
+	$('#form-status').click(function() {
+			$(this).fadeOut('slow');
 	});
 }
 
@@ -242,7 +243,7 @@ function initWorkStructure() {
  *
  */
 function initTwitterTimeline() {
-	$.getJSON('https://api.twitter.com/1/statuses/user_timeline.json?include_rts=true&screen_name=joan_fern&count=4&callback=?', function(data) {
+	$.getJSON('https://api.twitter.com/1/statuses/user_timeline.json?include_rts=true&screen_name=joan_fern&count=5&callback=?', function(data) {
 		var items = [];
 
 		$.each(data, function(key, val) {

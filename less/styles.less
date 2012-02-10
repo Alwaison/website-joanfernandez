@@ -694,6 +694,7 @@ input[type=submit],
   background:-moz-radial-gradient(50% 180px, circle cover, #eef2f8 0%, #eef2f8 5%, #cbd9ea 30%, #cbd9ea 100% );
   background:-ms-radial-gradient(50% 180px, circle cover, #eef2f8 0%, #eef2f8 5%, #cbd9ea 30%, #cbd9ea 100% );
   background:-o-radial-gradient(50% 180px, circle cover, #eef2f8 0%, #eef2f8 5%, #cbd9ea 30%, #cbd9ea 100% );
+  background:radial-gradient(50% 180px, circle cover, #eef2f8 0%, #eef2f8 5%, #cbd9ea 30%, #cbd9ea 100% );
 
   padding:100px 0 0;
 
@@ -717,12 +718,15 @@ input[type=submit],
   -moz-column-gap:2em;
   -webkit-column-gap:2em;
   column-gap:2em;
+  -moz-column-width:278px;
+  -webkit-column-width:278px;
+  column-width:278px;
   
   section {
     background:#a0b0c3;
     color:#ecf2f7;
     padding:45px 23px 40px;
-    /*width:@w - @padding*2px;*/
+    width:278px;
     /*float:left;*/
     /*margin:0 24px 0 0;*/
     .br(5px);
@@ -755,6 +759,7 @@ input[type=submit],
 
 .who {
   font-size:16px;
+  padding-bottom:20px;
 
   p {
     text-align:right;
@@ -945,10 +950,13 @@ input[type=submit]:disabled{
 
 /* Form status */
 .form-status {
-  width:100%;
-  height:100%;
-  .po(absolute,0,auto,auto,auto);
+  width:94%;
+  height:auto;
+  padding:1em;
+  .po(absolute,-40px,auto,auto,auto);
   z-index:2;
+  .br(10px);
+  cursor:pointer;
 
   &.ok {
     background:rgba(0,255,0,.3);
@@ -1008,7 +1016,7 @@ input[type=submit]:disabled{
     margin:20px 0 0;
   }
   p {
-    margin:0;
+    margin:0 0 10px;
   }
 }
 .humans-link,
@@ -1047,27 +1055,44 @@ pre.prettyprint {
     height:100%;
     z-index:9999; 
   }
+  /**
+   * Animated cursor
+   * Steps idea from @leaverou (http://lea.verou.me/2011/09/pure-css3-typing-animation-with-steps/)
+   */
+  .text {
+    color:#0f0;
+    font-size:20px;
+    font-family:monospace;
+    width:300px;
+    height:20px;
+    display:block;
+    overflow:hidden;
+    position:relative;
+    float:left;
+    -moz-animation:text 14s steps(25);
+    -webkit-animation:text 14s steps(25);
+    -o-animation:text 14s steps(25);
+    -ms-animation:text 14s steps(25);
+    animation:text 14s steps(25);
+  }
+  
+  .cursor {
+    display:block;
+    width:12px;
+    height:20px;
+    background:#eee;
+    position:absolute;
+    right:0;
+    top:0;
+    z-index:2;
+    -moz-animation:cursor 1s infinite;
+    -webkit-animation:cursor 1s infinite;
+    -o-animation:cursor 1s infinite;
+    -ms-animation:cursor 1s infinite;
+    animation:cursor 1s infinite;
+  }
 }
 
-/**
- * Animated cursor
- */
-.text {
-  color:#0f0;
-  font-size:20px;
-  font-family:monospace;
-  width:300px;
-  height:20px;
-  display:block;
-  overflow:hidden;
-  position:relative;
-  float:left;
-  -moz-animation:text 14s steps(25);
-  -webkit-animation:text 14s steps(25);
-  -o-animation:text 14s steps(25);
-  -ms-animation:text 14s steps(25);
-  animation:text 14s steps(25);
-}
 
 @-moz-keyframes text {
   0%    { width:12px; }
@@ -1089,22 +1114,6 @@ pre.prettyprint {
   0%    { width:12px; }
   100%  { width:312px; }
 }*/
-
-.cursor {
-  display:block;
-  width:12px;
-  height:20px;
-  background:#eee;
-  position:absolute;
-  right:0;
-  top:0;
-  z-index:2;
-  -moz-animation:cursor 1s infinite;
-  -webkit-animation:cursor 1s infinite;
-  -o-animation:cursor 1s infinite;
-  -ms-animation:cursor 1s infinite;
-  animation:cursor 1s infinite;
-}
 
 @-moz-keyframes cursor {
   0%    { background:#eee; }
