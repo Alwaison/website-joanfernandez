@@ -1034,15 +1034,109 @@ pre .atn { color: #bdb76b; } /* html/xml attribute name  - khaki */
 pre .atv { color: #65B042; } /* html/xml attribute value - green */
 pre .dec { color: #3387CC; } /* decimal - blue */
 pre.prettyprint { 
-  background-color:#000; 
+  background-color:#111; 
   position:absolute; 
   top:0; 
   z-index:10000; 
-  width:100%; 
+  width:90%; 
   margin:0; 
-  padding:1em; 
+  padding:5%; 
   white-space:pre-wrap; 
+
+  .neo {
+    height:100%;
+    z-index:9999; 
+  }
 }
+
+/**
+ * Animated cursor
+ */
+.text {
+  color:#0f0;
+  font-size:20px;
+  font-family:monospace;
+  width:300px;
+  height:20px;
+  display:block;
+  overflow:hidden;
+  position:relative;
+  float:left;
+  -moz-animation:text 14s steps(25);
+  -webkit-animation:text 14s steps(25);
+  -o-animation:text 14s steps(25);
+  -ms-animation:text 14s steps(25);
+  animation:text 14s steps(25);
+}
+
+@-moz-keyframes text {
+  0%    { width:12px; }
+  100%  { width:312px; }
+}
+@-webkit-keyframes text {
+  0%    { width:12px; }
+  100%  { width:312px; }
+}
+@-o-keyframes text {
+  0%    { width:12px; }
+  100%  { width:312px; }
+}
+@-ms-keyframes text {
+  0%    { width:12px; }
+  100%  { width:312px; }
+}
+/*@keyframes text {
+  0%    { width:12px; }
+  100%  { width:312px; }
+}*/
+
+.cursor {
+  display:block;
+  width:12px;
+  height:20px;
+  background:#eee;
+  position:absolute;
+  right:0;
+  top:0;
+  z-index:2;
+  -moz-animation:cursor 1s infinite;
+  -webkit-animation:cursor 1s infinite;
+  -o-animation:cursor 1s infinite;
+  -ms-animation:cursor 1s infinite;
+  animation:cursor 1s infinite;
+}
+
+@-moz-keyframes cursor {
+  0%    { background:#eee; }
+  60%   { background:#eee; }
+  61%   { background:transparent; }
+  100%  { background:transparent; }
+}
+@-webkit-keyframes cursor {
+  0%    { background:#eee; }
+  60%   { background:#eee; }
+  61%   { background:transparent; }
+  100%  { background:transparent; }
+}
+@-o-keyframes cursor {
+  0%    { background:#eee; }
+  60%   { background:#eee; }
+  61%   { background:transparent; }
+  100%  { background:transparent; }
+}
+@-ms-keyframes cursor {
+  0%    { background:#eee; }
+  60%   { background:#eee; }
+  61%   { background:transparent; }
+  100%  { background:transparent; }
+}
+/*@keyframes cursor {
+  0%    { background:#eee; }
+  60%   { background:#eee; }
+  61%   { background:transparent; }
+  100%  { background:transparent; }
+}*/
+
 
 
 
@@ -1068,215 +1162,6 @@ pre.prettyprint {
 .clearfix:after { clear:both; }
 .clearfix { zoom:1; }
 
-
-/* ==|== media queries ======================================================
-   PLACEHOLDER Media Queries for Responsive Design.
-   These override the primary ('mobile first') styles
-   Modify as content requires.
-   ========================================================================== */
-
-@media only screen and (max-width:479px) {
-  .social {
-
-    a {      
-      text-indent:-9999em;
-      padding-right:55px;
-
-      b {
-        text-index:0em;
-      }
-    }
-  }
-}
-@media only screen and (max-width:480px) {
-
-  /* navigation */
-  .top-navigation {
-    li {
-      margin:0 1em;
-    }
-    a {
-      font-size:2em;
-    } 
-  }
-
-  /* Skills */
-  .skill-selected { display:none; }
-  .skill-list {
-    
-    .ileft,
-    .iright {
-      //.po(relative,auto,auto,auto,auto);
-      width:45%;
-    }
-    li { 
-      width:100%;
-      b {
-        width:50px;
-        height:50px;
-        span,
-        canvas,
-        img { width:50px; height:50px; font-size:25px; line-height:50px; }
-      }
-    }
-    a {
-      height:51px;
-      line-height:51px;
-      font-size:25px;
-    }
-  }
-
-}
-
-@media only screen and (max-width:768px) {
-  /* about */
-  .about-sections {
-    -moz-columns:auto;
-    -webkit-columns:auto;
-    columns:auto;
-    -moz-column-gap:normal;
-    -webkit-column-gap:normal;
-    column-gap:normal;      
-
-    section {
-      width:80%;
-      margin:0 auto 2em;
-      float:none;
-      display:block; 
-
-      &:last-child {    
-        margin:0 auto;
-      }
-    }
-  }  
-
-  /* Works */
-  .imgs-container {
-    width:95% !important;
-    margin:3em auto 1em;
-    .po(relative,auto,auto,auto,auto);
-    float:none;
-    height:auto;
-    overflow:hidden;
-
-    .img-wrp {
-      width:120px !important;
-      height:120px;
-      .po(relative,auto,auto,auto,auto);
-      float:left;
-
-
-      &:not(.active):hover,
-      &:not(.active):focus {
-        /*position:absolute;*/
-        width:120px;
-        z-index:3;
-        .trans(none);
-
-        &:nth-child(3n){ right:auto; left:auto; }
-      }
-    }
-
-    img {      
-      height:120px !important;
-    }
-  }
-
-  .works {
-    float:none;
-    width:95%;
-
-    .mq-hidden {
-      display:inline;
-      width:35px;
-      font-size:25px;
-      padding:0 15px 0 0;
-      font-weight:bold;
-    }
-  }
-
-  /* Contact */
-  .contact-form,
-  .info {
-    width:95%;
-    margin:0 auto;
-    float:none;
-  }
-  .info { 
-    margin-top:5em;
-    text-align:center;
-  }
-  .humans-link, .html5-link { float:none; }
-
-  input[type="text"], input[type="email"], textarea {
-    width:85%;
-  }
-
-}
-
-
-@media only screen and (max-width:1023px) {
-  /* Style adjustments for viewports 768px and over go here */
-  /* Header */
-  .logo {
-    .po(relative,auto,auto,auto,auto);
-    padding:10em 0 0;
-    
-    h1 {
-      font-size:6em;
-      text-align:center;
-    }
-  }
-
-  .welcome-text {
-    .po(relative,auto,auto,auto,auto);
-    margin:4em auto 0;
-    width:90%;
-    padding:0 1em;
-    font-size:1.5em;
-  }
-
-  /* Works */
-  .imgs-container {
-    width:50%;
-    margin:3em auto 1em;
-    .po(relative,auto,auto,auto,auto);
-    /*float:none;*/
-    height:auto;
-    overflow:hidden;
-
-    .img-wrp {
-      width:29%;
-      .po(relative,auto,auto,auto,auto);
-      float:left;
-
-      &:nth-child(1),
-      &:nth-child(2),
-      &:nth-child(3),
-      &:nth-child(4),
-      &:nth-child(5),
-      &:nth-child(6),
-      &:nth-child(7),
-      &:nth-child(8),
-      &:nth-child(9){ left:auto; top:auto; }
-
-      &:not(.active):hover,
-      &:not(.active):focus {
-        /*position:absolute;*/
-        width:29%;
-        z-index:3;
-        .trans(none);
-
-        &:nth-child(3n){ right:auto; left:auto; }
-      }
-    }
-
-    img {      
-      height:120px;
-    }
-  }
-
-}
 
 /* ==|== print styles =======================================================
    Print styles.
