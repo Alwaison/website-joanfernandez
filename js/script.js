@@ -43,8 +43,8 @@ function initLocalScroll(){
  *
  */
 function initMarkupMods(){
-	var _ileft = sk.find('li:nth-child(-n+6)');
-	var _iright = sk.find('li:nth-child(n+7)');
+	var _ileft = sk.find('li:nth-child(-n+5)');
+	var _iright = sk.find('li:nth-child(n+6)');
 	_ileft.wrapAll('<div class="ileft"/>');
 	_iright.wrapAll('<div class="iright"/>');
 
@@ -63,16 +63,20 @@ function initSkills(){
 	_ss.find('div:not(.selected)').hide();
 
 	$('#skill-list').find('a').click(function(e){
+		
 		e.preventDefault();
-		var _id = $(this).attr('href');
+
+		var self = $(this);
+		var _id = self.attr('href');
 		_ss.find('.selected').hide();
 		$(_id).removeClass('visuallyhidden').addClass('selected').fadeIn('slow');
-		$('#skill-list li').removeClass('selected');
-		$(this).parent('li').addClass('selected');
+		$('#skill-list').find('li').removeClass('selected');
+		self.parent('li').addClass('selected');
 	});
 
 	$('#skill-list').find('b').each(function(){
-		var _s = parseInt($(this).attr('class').substr(1));
+		var self = $(this);
+		var _s = parseInt(self.attr('data-radius'));
 
 		if( Modernizr.canvas ) { // #0000010
 			// Chart data
@@ -87,7 +91,7 @@ function initSkills(){
 
 			// Create a new instance of CanvasPieChart
 			var canvasPieChart = new CanvasPieChart( 
-				$(this).attr('id'), 
+				self.attr('id'), 
 				browserUsageData,
 				{
 			    	'width' : 91,
@@ -103,7 +107,7 @@ function initSkills(){
 			var v1 = _s;
 			var v2 = parseInt(100-_s);
 			var _src = 'https://chart.googleapis.com/chart?cht=p&chd=t:'+v1+','+v2+'&chco=cdf63c|8da6ce&chs=111x111&chp=-1.6&chf=bg,s,FFFFFF00';
-			$(this).append('<img src="'+_src+'" >');
+			self.append('<img src="'+_src+'" >');
 		}
 
 	});
@@ -172,12 +176,13 @@ function initWorkStructure() {
 	//$('#work .wrapper > h1').append('<div id="imgs-container" class="imgs-container"></div>');
 	$('<div id="imgs-container" class="imgs-container"></div>').insertAfter('#work .wrapper > h1'); 
 	$('#work article').each(function(){
-		var img = $(this).find('.work-image');
+		var self = $(this);
+		var img = self.find('.work-image');
 		img.attr('id', 'iwork-'+count);
 		img.wrap('<a class="img-wrp" href="#twork-'+count+'"/>');
 		$('#imgs-container').append(img.parent());
-		$(this).parent('li').attr('id', 'twork-'+count);
-		$(this).find('h1').prepend('<a class="mq-hidden" href="#work" title="Back to top">#</a>');
+		self.parent('li').attr('id', 'twork-'+count);
+		self.find('h1').prepend('<a class="mq-hidden" href="#work" title="Back to top">#</a>');
 		count++;
 	});
 	
@@ -187,7 +192,8 @@ function initWorkStructure() {
 
 	/* Canvas charts */
 	$('#work .project-tasks').find('b').each(function(){
-		var _s = parseInt($(this).attr('class').substr(1));
+		var self = $(this);
+		var _s = parseInt(self.attr('data-radius'));
 
 		if ( Modernizr.canvas ) {
 
@@ -203,7 +209,7 @@ function initWorkStructure() {
 
 			// Create a new instance of CanvasPieChart
 			var canvasPieChart = new CanvasPieChart( 
-				$(this).attr('id'), 
+				self.attr('id'), 
 				browserUsageData,
 				{
 			    	'width' : 118,
@@ -220,20 +226,20 @@ function initWorkStructure() {
 			var v1 = _s;
 			var v2 = parseInt(100-_s);
 			var _src = 'https://chart.googleapis.com/chart?cht=p&chd=t:'+v1+','+v2+'&chco=98c141|9e9e9e&chs=128x128&chp=-1.6&chf=bg,s,FFFFFF00';
-			$(this).append('<img src="'+_src+'" >');
+			self.append('<img src="'+_src+'" >');
 		}
 	});
 	
 	
 	/* Onclick event */
 	$('#work .img-wrp').click(function(e){
-		//e.preventDefault();
+		var self = $(this);
+
 		$('#work .img-wrp').removeClass('active')
-		$(this).addClass('active');
-		var id = $(this).find('img').attr('id').split('-')[1];
+		self.addClass('active');
+		var id = self.find('img').attr('id').split('-')[1];
 		$('#work li.active').removeClass('active').hide();
 		$('#twork-'+id).addClass('active').fadeIn();
-		//return false;
 	});
 	
 }
