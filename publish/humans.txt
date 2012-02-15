@@ -1,0 +1,27 @@
+/* MAIN */            
+
+Developed by: Joan Fernandez
+Site: http://joanfernandez.es
+Twitter: @joan_fern
+Location: Elche, Spain.
+
+
+/* SITE */
+
+Realease date:YYYY/MM/DD
+Last update: YYYY/MM/DD 
+Standards: HTML5, CSS3
+Components: HTML5Boilerplate, Modernizr, jQuery & LESS.
+Fonts: 
+	- League Gothic - http://www.theleagueofmoveabletype.com/league-gothic
+
+Scripts:
+	- LocalScroll - http://flesler.blogspot.com/2007/10/jquerylocalscroll-10.html
+	- Elastic - http://unwrongest.com/projects/elastic/
+	- CanvasPieChart (Modificated version of the original by Thomas Andersen) - https://github.com/Alwaison/canvas-pie-chart
+	- twitter-text-js - https://github.com/twitter/twitter-text-js
+	
+Software: 
+	- Sublime Text 2 - http://sublimetext.com/2 
+	- SimpLess - http://wearekiss.com/simpless
+	- Yahoo YUI Compressor - http://developer.yahoo.com/yui/compressor/
