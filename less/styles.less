@@ -369,19 +369,19 @@ input[type=submit],
       margin:0 0 40px;
     }
 
+    a:hover,a:focus {
+      @tr: background, color;
+      background:#333;
+      color:#fff;
+      text-decoration:none;
+      .trans(@tr);
+    } 
+
     .site-link {
       color:#333;
       font-size:20px;
       float:right;
       text-decoration:none;
-
-      &:hover,
-      &:focus {
-        @tr: background, color;
-        background:#333;
-        color:#fff;
-        .trans(@tr);
-      }
     }
   }
 
@@ -478,9 +478,6 @@ input[type=submit],
   > li {
     padding:100px 0 0;
     margin:-100px 0 0;
-  }
-  .mq-hidden {
-    display:none;
   }
 }
 

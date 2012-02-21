@@ -182,7 +182,6 @@ function initWorkStructure() {
 		img.wrap('<a class="img-wrp" href="#twork-'+count+'"/>');
 		$('#imgs-container').append(img.parent());
 		self.parent('li').attr('id', 'twork-'+count);
-		self.find('h1').prepend('<a class="mq-hidden" href="#work" title="Back to top">#</a>');
 		count++;
 	});
 	
