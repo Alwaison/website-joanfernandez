@@ -11,7 +11,7 @@ Location: Elche, Spain.
 Realease date:YYYY/MM/DD
 Last update: YYYY/MM/DD 
 Standards: HTML5, CSS3
-Components: HTML5Boilerplate, Modernizr, jQuery & LESS.
+Components: HTML5 Boilerplate, Modernizr, jQuery, LESS & HTML5 Boilerplate Build Script.
 Fonts: 
 	- League Gothic - http://www.theleagueofmoveabletype.com/league-gothic
 
