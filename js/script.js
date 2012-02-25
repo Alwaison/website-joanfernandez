@@ -148,12 +148,14 @@ function initForms() {
 			url: 'contact.php',
 			data: data,
 			success: function(html) {
-				$('#contact').append('<div class="form-status" id="form-status" title="Clic para cerrar">'+html+'</div>');	
+				html = ( html == '200' ) ? 'Mensaje enviado correctamente.' : html;
+				var _class = ( html == '200' ) ? 'ok' : 'error';
+				$('#contact').append('<div class="form-status" id="form-status" title="Clic para cerrar">'+html+'</div>');
+				$('#form-status').addClass(_class);
 			},
 			complete: function() {
 				$('#contact input[type=submit]').removeAttr('disabled');
 				$('#contact input[type=submit]').attr('value',_val);
-				$('#form-status').addClass('ok');
 			},
 			error: function() {
 				$('#form-status').addClass('error');
